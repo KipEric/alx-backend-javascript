@@ -49,7 +49,7 @@ const app = http.createServer((request, response) => {
   response.statusCode = 200;
   response.setHeader('Content-Type', 'text/plain');
   if (request.url === '/') {
-    response.write('Hello Holberton School!\n');
+    response.write('Hello Holberton School!');
     response.end();
   }
   if (request.url === '/students') {
@@ -59,11 +59,12 @@ const app = http.createServer((request, response) => {
       response.end(outString);
     }).catch(() => {
       response.statusCode = 404;
-      response.end('Cannot load the database\n');
+      response.end('Cannot load the database');
     });
   }
 });
 
-app.listen(port, hostname, () => {});
+app.listen(port, hostname, () => {
+});
 
 module.exports = app;

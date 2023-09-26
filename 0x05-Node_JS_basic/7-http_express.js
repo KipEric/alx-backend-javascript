@@ -1,4 +1,5 @@
 const express = require('express');
+
 const { readFile } = require('fs');
 
 const app = express();
@@ -48,7 +49,6 @@ function countStudents(fileName) {
 app.get('/', (request, response) => {
   response.send('Hello Holberton School!');
 });
-
 app.get('/students', (request, response) => {
   countStudents(process.argv[2].toString()).then((output) => {
     response.send(['This is the list of our students', output].join('\n'));
@@ -57,6 +57,7 @@ app.get('/students', (request, response) => {
   });
 });
 
-app.listen(port, () => {});
+app.listen(port, () => {
+});
 
 module.exports = app;
